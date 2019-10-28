@@ -21,13 +21,7 @@ export class InformacionHeroeComponent implements OnInit {
 
     console.log(this.HeroeFiltrado);
 
-    if (this.HeroeFiltrado.casa == "Marvel") {
-      this.nuevacasa="./../../../assets/img/marvel.png"
-    } else {
-      this.nuevacasa="./../../../assets/img/dc.png"
-      
-      
-    }
+   
     console.log(this.HeroeFiltrado.casa);
 
   }
