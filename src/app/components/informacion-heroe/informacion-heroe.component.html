@@ -16,7 +16,9 @@
             <hr>
             <p class="mb-0">Aparición: {{HeroeFiltrado.aparicion}} </p>
             <p class="mb-0">Casa: </p>
-            <img src="{{nuevacasa}}" alt="" style="width: 50%;" id="imagen">
+            <img src="assets/img/marvel.png" alt="" style="width: 50%;" id="imagen" *ngIf="HeroeFiltrado.casa == 'Marvel'">
+            
+            <img src="assets/img/dc.png" alt="" style="width: 50%;" id="imagen" *ngIf="HeroeFiltrado.casa == 'DC'">
           </div>
         </div>
 
