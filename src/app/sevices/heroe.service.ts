@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BuscarHeroesComponent } from '../components/buscar-heroes/buscar-heroes.component';
 
 @Injectable({
   providedIn: 'root'
@@ -6,22 +7,22 @@ import { Injectable } from '@angular/core';
 export class HeroeService {
 
   constructor() { }
-  private Heroes=[
+  private Heroes = [
     {
       nombre: "Aquaman",
       bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
       img: "assets/img/aquaman.png",
       aparicion: "1941-11-01",
-      casa:"DC",
-      id:1
+      casa: "DC",
+      id: 1
     },
     {
       nombre: "Batman",
       bio: "Los rasgos principales de Batman se resumen en «destreza física, habilidades deductivas y obsesión». La mayor parte de las características básicas de los cómics han variado por las diferentes interpretaciones que le han dado al personaje.",
       img: "assets/img/batman.png",
       aparicion: "1939-05-01",
-      casa:"DC",
-      id:2
+      casa: "DC",
+      id: 2
     },
     {
       nombre: "Daredevil",
@@ -29,15 +30,15 @@ export class HeroeService {
       img: "assets/img/daredevil.png",
       aparicion: "1964-01-01",
       casa: "Marvel",
-      id:3
+      id: 3
     },
     {
       nombre: "Hulk",
       bio: "Su principal poder es su capacidad de aumentar su fuerza hasta niveles prácticamente ilimitados a la vez que aumenta su furia. Dependiendo de qué personalidad de Hulk esté al mando en ese momento (el Hulk Banner es el más débil, pero lo compensa con su inteligencia).",
       img: "assets/img/hulk.png",
       aparicion: "1962-05-01",
-      casa:"Marvel",
-      id:4
+      casa: "Marvel",
+      id: 4
     },
     {
       nombre: "Linterna Verde",
@@ -45,7 +46,7 @@ export class HeroeService {
       img: "assets/img/linterna-verde.png",
       aparicion: "1940-06-01",
       casa: "DC",
-      id:5
+      id: 5
     },
     {
       nombre: "Spider-Man",
@@ -53,7 +54,7 @@ export class HeroeService {
       img: "assets/img/spiderman.png",
       aparicion: "1962-08-01",
       casa: "Marvel",
-      id:6
+      id: 6
     },
     {
       nombre: "Wolverine",
@@ -61,20 +62,26 @@ export class HeroeService {
       img: "assets/img/wolverine.png",
       aparicion: "1974-11-01",
       casa: "Marvel",
-      id:7
+      id: 7
     }
   ];
-  public ReturnHeroes(){
+  public ReturnHeroes() {
     return this.Heroes;
   }
 
-  public BuscarHeroe(id){
-    
-   return this.Heroes.find(function(heroe){
-      if(heroe.id==id){
+  public BuscarHeroe(id) {
+
+    return this.Heroes.find(function (heroe) {
+      if (heroe.id == id) {
         return heroe
       }
 
     })
+  }
+
+  public buscarHeroes(termino: string) {
+    termino = termino.toLowerCase();
+    return  this.Heroes.filter((heroe) => heroe.nombre.toLowerCase().indexOf(termino) > -1);
+
   }
 }
